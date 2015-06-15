@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:ind-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:win-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#windows" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 http://oval.mitre.org/language/download/schema/version5.3/ovaldefinition/complete/oval-common-schema.xsd     http://oval.mitre.org/XMLSchema/oval-definitions-5 http://oval.mitre.org/language/download/schema/version5.3/ovaldefinition/complete/oval-definitions-schema.xsd     http://oval.mitre.org/XMLSchema/oval-definitions-5#windows http://oval.mitre.org/language/download/schema/version5.3/ovaldefinition/complete/windows-definitions-schema.xsd     http://oval.mitre.org/XMLSchema/oval-definitions-5#independent http://oval.mitre.org/language/download/schema/version5.3/ovaldefinition/complete/independent-definitions-schema.xsd">
+	<generator>
+		<oval:product_name>Rapid7 Nexpose</oval:product_name>
+		<oval:schema_version>5.10</oval:schema_version>
+		<oval:timestamp>2014-05-06T08:11:15.564-06:00</oval:timestamp>
+	</generator>
+	<!-- ==================================================================================================== -->
+	<!-- ===========================================  DEFINITIONS  =========================================== -->
+	<!-- ==================================================================================================== -->
+	<definitions>
+		<definition id="oval:rapid7-file-example:def:1" version="2" class="compliance">
+			<metadata>
+				<title>File access permissions test</title>
+				<description>File access permissions test</description>
+			</metadata>
+			<criteria>
+				<criterion comment="Verify /etc/fstab User and Group Owner and Permission settings" test_ref="oval:rapid7-file-example:tst:1"/>
+			</criteria>
+		</definition>
+	</definitions>
+	<!-- ==================================================================================================== -->
+	<!-- =============================================  TESTS  ============================================== -->
+	<!-- ==================================================================================================== -->
+	<tests>
+		<file_test xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" check="all" check_existence="all_exist" comment="Verify /etc/fstab User and Group Owner and Permission settings" id="oval:rapid7-file-example:tst:1" version="1">
+	      <object object_ref="oval:rapid7-file-example:obj:1" />
+	      <state state_ref="oval:rapid7-file-example:ste:1" />
+	   </file_test>
+	</tests>
+	<!-- ==================================================================================================== -->
+	<!-- ============================================  OBJECTS  ============================================= -->
+	<!-- ==================================================================================================== -->
+	<objects>
+	   <file_object xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" comment="Object that holds the /etc/fstab file info" id="oval:rapid7-file-example:obj:1" version="1">
+      <path>/etc</path>
+      <filename>fstab</filename>
+    </file_object>
+	</objects>
+	<!-- ==================================================================================================== -->
+	<!-- =============================================  STATES  ============================================= -->
+	<!-- ==================================================================================================== -->
+	<states>
+		 <file_state xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" id="oval:rapid7-file-example:ste:1" version="1" comment="Validate for User(ROOT), Group(ROOT), Permission(-rw-r--r--) settings for /etc/fstab">
+	      <group_id datatype="int">0</group_id>
+	      <user_id datatype="int">0</user_id>
+	      <uread datatype="boolean">1</uread>
+	      <uwrite datatype="boolean">1</uwrite>
+	      <uexec datatype="boolean">0</uexec>
+	      <gread datatype="boolean">1</gread>
+	      <gwrite datatype="boolean">0</gwrite>
+	      <gexec datatype="boolean">0</gexec>
+	      <oread datatype="boolean">1</oread>
+	      <owrite datatype="boolean">0</owrite>
+	      <oexec datatype="boolean">0</oexec>
+	    </file_state>
+	</states>
+</oval_definitions>

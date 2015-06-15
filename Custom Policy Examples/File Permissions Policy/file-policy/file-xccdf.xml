@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Benchmark xmlns="http://checklists.nist.gov/xccdf/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdf="http://checklists.nist.gov/xccdf/1.1" xmlns:cpe="http://cpe.mitre.org/dictionary/2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" id="File-Policy-Example" resolved="0" xml:lang="en-US" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.1 http://nvd.nist.gov/schema/xccdf-1.1.4.xsd       http://cpe.mitre.org/dictionary/2.0 http://cpe.mitre.org/files/cpe-dictionary_2.1.xsd">
+  <!-- Benchmark Information -->
+  <status date="2011-06-10">accepted</status>
+  <title>File Permissions Policy Example</title>
+  <description>This is a File Permissions test policy intended to be used as a template.</description>
+  <version>v1.0.0.0</version>
+  <model system="urn:xccdf:scoring:default"/>
+  <model system="urn:xccdf:scoring:flat"/>
+
+  <Profile id="File_test_policy">
+    <title>File Test Policy 1.0.0.0</title>
+    <description>This is a test profile.</description>
+    <select idref="file_test_rule" selected="true"/>
+  </Profile>
+  <Group id="file_test_group">
+    <title>File Test Group</title>
+    <description>This is a test group.</description>
+    <Rule id="file_test_rule" selected="false" weight="10.0">
+      <title>File Test Rule</title>
+      <description>A simple file test.</description>
+  	  <check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+  		  <check-content-ref href="file-oval.xml" name="oval:rapid7-file-example:def:1"/>
+  	  </check>
+    </Rule>
+  </Group>
+</Benchmark>
