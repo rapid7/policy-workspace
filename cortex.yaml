@@ -1,0 +1,16 @@
+---
+info:
+  title: Policy Workspace
+  x-cortex-git:
+    github:
+      alias: r7org
+      repository: rapid7/policy-workspace
+  x-cortex-tag: policy-workspace
+  x-cortex-type: service
+  x-cortex-groups:
+  - status:deprecated
+  x-cortex-domain-parents:
+  - tag: vm-policy-assessment
+openapi: 3.0.1
+servers:
+- url: "/"
