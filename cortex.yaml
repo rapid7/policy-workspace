@@ -1,4 +1,3 @@
----
 info:
   title: Policy Workspace
   x-cortex-git:
@@ -10,7 +9,7 @@ info:
   x-cortex-groups:
   - status:deprecated
   x-cortex-domain-parents:
-  - tag: vm-policy-assessment
+  - tag: vm-policy
 openapi: 3.0.1
 servers:
-- url: "/"
+- url: /
